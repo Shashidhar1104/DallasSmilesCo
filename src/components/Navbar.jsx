@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo-final.png";
 
 function Navbar() {
@@ -25,10 +26,10 @@ function Navbar() {
         <div className="flex items-center h-24">
 
           {/* LEFT: LOGO */}
-          <div className="flex items-center gap-2 flex-shrink-0">
+          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
             <img
               src={logo}
-              alt="Cloud Dentistry"
+              alt="Dallas Smiles & Co"
               className="h-16 w-auto"
             />
             <span
@@ -37,40 +38,44 @@ function Navbar() {
             >
               Dallas Smiles & Co.
             </span>
-          </div>
+          </Link>
 
           {/* DESKTOP MENU */}
           <nav className="hidden md:flex items-center gap-12 ml-auto mr-12">
-            <a
-              href="#"
+            <Link
+              to="/professionals"
               className="text-gray-900 font-medium hover:text-blue-600 transition"
             >
               Professionals
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              to="/offices"
               className="text-gray-900 font-medium hover:text-blue-600 transition"
             >
               Offices
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              to="/login"
               className="text-gray-900 font-medium hover:text-blue-600 transition"
             >
               Log In
-            </a>
+            </Link>
 
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition">
+            <Link
+              to="/signup"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition"
+            >
               Sign Up
-            </button>
+            </Link>
           </nav>
 
           {/* MOBILE MENU BUTTON */}
           <button
             className="md:hidden ml-auto text-gray-800"
             onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -92,18 +97,37 @@ function Navbar() {
       {open && (
         <div className="md:hidden bg-white border-t">
           <div className="px-6 py-6 space-y-6">
-            <a href="#" className="block text-gray-900 font-medium">
+            <Link
+              to="/professionals"
+              className="block text-gray-900 font-medium"
+              onClick={() => setOpen(false)}
+            >
               Professionals
-            </a>
-            <a href="#" className="block text-gray-900 font-medium">
+            </Link>
+
+            <Link
+              to="/offices"
+              className="block text-gray-900 font-medium"
+              onClick={() => setOpen(false)}
+            >
               Offices
-            </a>
-            <a href="#" className="block text-gray-900 font-medium">
+            </Link>
+
+            <Link
+              to="/login"
+              className="block text-gray-900 font-medium"
+              onClick={() => setOpen(false)}
+            >
               Log In
-            </a>
-            <button className="w-full bg-blue-600 text-white py-3 rounded-full font-semibold">
+            </Link>
+
+            <Link
+              to="/signup"
+              className="block w-full text-center bg-blue-600 text-white py-3 rounded-full font-semibold"
+              onClick={() => setOpen(false)}
+            >
               Sign Up
-            </button>
+            </Link>
           </div>
         </div>
       )}
