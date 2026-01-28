@@ -1,20 +1,34 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import logo from "../assets/logo-final.png";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Detect scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setOpen(false);
+  };
+
+  const menuItems = [
+    { label: "Home", id: "home" },
+    { label: "About Us", id: "about" },
+    { label: "Services", id: "services" },
+    { label: "Why Choose Us", id: "why" },
+    { label: "Testimonial", id: "testimonial" },
+    { label: "Contact Us", id: "contact" },
+  ];
 
   return (
     <header
@@ -25,50 +39,39 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center h-24">
 
-          {/* LEFT: LOGO */}
-          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <img
-              src={logo}
-              alt="Dallas Smiles & Co"
-              className="h-16 w-auto"
-            />
+          {/* LOGO */}
+          <button
+            onClick={() => scrollToSection("home")}
+            className="flex items-center gap-2 flex-shrink-0"
+          >
+            <img src={logo} alt="Dallas Smiles & Co" className="h-16 w-auto" />
             <span
               className="text-2xl font-normal tracking-wide"
               style={{ color: "#3f4245", letterSpacing: "0.02em" }}
             >
               Dallas Smiles & Co.
             </span>
-          </Link>
+          </button>
 
           {/* DESKTOP MENU */}
-          <nav className="hidden md:flex items-center gap-12 ml-auto mr-12">
-            <Link
-              to="/professionals"
-              className="text-gray-900 font-medium hover:text-blue-600 transition"
-            >
-              Professionals
-            </Link>
+          <nav className="hidden md:flex items-center gap-10 ml-auto">
+            {menuItems.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => scrollToSection(item.id)}
+                className="text-gray-900 font-medium hover:text-blue-600 transition"
+              >
+                {item.label}
+              </button>
+            ))}
 
-            <Link
-              to="/offices"
-              className="text-gray-900 font-medium hover:text-blue-600 transition"
+            {/* CTA */}
+            <button
+              onClick={() => scrollToSection("appointment")}
+              className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-7 py-3 rounded-full font-semibold transition"
             >
-              Offices
-            </Link>
-
-            <Link
-              to="/login"
-              className="text-gray-900 font-medium hover:text-blue-600 transition"
-            >
-              Log In
-            </Link>
-
-            <Link
-              to="/signup"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition"
-            >
-              Sign Up
-            </Link>
+              Book Appointment
+            </button>
           </nav>
 
           {/* MOBILE MENU BUTTON */}
@@ -93,41 +96,26 @@ function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE DROPDOWN */}
+      {/* MOBILE MENU */}
       {open && (
         <div className="md:hidden bg-white border-t">
-          <div className="px-6 py-6 space-y-6">
-            <Link
-              to="/professionals"
-              className="block text-gray-900 font-medium"
-              onClick={() => setOpen(false)}
-            >
-              Professionals
-            </Link>
+          <div className="px-6 py-6 space-y-5">
+            {menuItems.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => scrollToSection(item.id)}
+                className="block w-full text-left text-gray-900 font-medium"
+              >
+                {item.label}
+              </button>
+            ))}
 
-            <Link
-              to="/offices"
-              className="block text-gray-900 font-medium"
-              onClick={() => setOpen(false)}
+            <button
+              onClick={() => scrollToSection("appointment")}
+              className="block w-full bg-blue-600 text-white py-3 rounded-full font-semibold"
             >
-              Offices
-            </Link>
-
-            <Link
-              to="/login"
-              className="block text-gray-900 font-medium"
-              onClick={() => setOpen(false)}
-            >
-              Log In
-            </Link>
-
-            <Link
-              to="/signup"
-              className="block w-full text-center bg-blue-600 text-white py-3 rounded-full font-semibold"
-              onClick={() => setOpen(false)}
-            >
-              Sign Up
-            </Link>
+              Book Appointment
+            </button>
           </div>
         </div>
       )}
