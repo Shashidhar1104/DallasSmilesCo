@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaWhatsapp, FaArrowUp } from "react-icons/fa";
-import { FaTooth } from "react-icons/fa6";
+import { FaArrowUp, FaWhatsapp, FaTooth } from "react-icons/fa";
 
 function FloatingButtons() {
   const [showTop, setShowTop] = useState(false);
@@ -17,14 +16,22 @@ function FloatingButtons() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  return (
-    <div className="fixed right-5 bottom-6 z-50 flex flex-col items-center gap-4">
+  const scrollToContact = () => {
+    document
+      .getElementById("contact")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
 
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
+      
       {/* Scroll to Top */}
       {showTop && (
         <button
           onClick={scrollToTop}
-          className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:scale-105 transition"
+          className="w-12 h-12 rounded-full bg-blue-600 text-white 
+                     flex items-center justify-center shadow-lg 
+                     hover:scale-105 transition"
           aria-label="Scroll to top"
         >
           <FaArrowUp size={18} />
@@ -33,27 +40,29 @@ function FloatingButtons() {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/919999999999"
+        href="https://wa.me/919032035039"
         target="_blank"
         rel="noopener noreferrer"
+        className="w-12 h-12 rounded-full bg-[#25D366] text-white 
+                   flex items-center justify-center shadow-lg 
+                   hover:scale-105 transition"
         aria-label="WhatsApp"
-        className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-105 transition"
       >
         <FaWhatsapp size={22} />
       </a>
 
       {/* Book Appointment */}
       <button
-        onClick={() =>
-          document
-            .getElementById("appointment")
-            ?.scrollIntoView({ behavior: "smooth" })
-        }
-        className="flex items-center gap-2 px-5 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:scale-105 transition"
+        onClick={scrollToContact}
+        className="flex items-center gap-2 px-5 py-3 
+                   rounded-full bg-blue-600 text-white 
+                   font-semibold shadow-lg 
+                   hover:scale-105 transition"
       >
         <FaTooth size={18} />
         Book Appointment
       </button>
+
     </div>
   );
 }

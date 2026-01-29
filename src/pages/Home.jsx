@@ -22,47 +22,55 @@ import {
   ClipboardDocumentCheckIcon,
   ClockIcon,
 } from "@heroicons/react/24/outline";
+import smile from "../assets/services1.png";
+import braces from "../assets/services2.png";
+import gum from "../assets/services3.png";
+import implants from "../assets/services4.png";
+import wisdom from "../assets/services5.png";
+import kids from "../assets/services6.png";
+import root from "../assets/services7.png";
+import crowns from "../assets/services8.png";
 
 const services = [
   {
     title: "Smile Makeover",
     desc: "Enhance your smile with cosmetic dental solutions.",
-    icon: SparklesIcon,
+    image: smile,
   },
   {
     title: "Braces & Aligners",
     desc: "Straighten teeth with modern orthodontic treatments.",
-    icon: AdjustmentsHorizontalIcon,
+    image: braces,
   },
   {
-    title: "Advanced Gum Care",
+    title: "Advanced Gum Treatment",
     desc: "Comprehensive periodontal care for healthy gums.",
-    icon: ShieldCheckIcon,
+    image: gum,
   },
   {
     title: "Dental Implants",
     desc: "Permanent solutions for missing teeth.",
-    icon: WrenchScrewdriverIcon,
+    image: implants,
   },
   {
     title: "Wisdom Tooth Removal",
     desc: "Safe and painless wisdom tooth extractions.",
-    icon: MagnifyingGlassIcon,
+    image: wisdom,
   },
   {
     title: "Kids Dentistry",
     desc: "Gentle dental care designed for children.",
-    icon: FaceSmileIcon,
+    image: kids,
   },
   {
-    title: "Root Canal Treatment",
+    title: "Root Canal",
     desc: "Relieve pain and save your natural teeth.",
-    icon: HeartIcon,
+    image: root,
   },
   {
     title: "Crowns & Dentures",
     desc: "Restore function and aesthetics of teeth.",
-    icon: BuildingOffice2Icon,
+    image: crowns,
   },
 ];
 
@@ -340,48 +348,51 @@ function Home() {
         </div>
       </section>
 
-      {/* ================= SERVICES SECTION ================= */}
-      <section id="services" className="py-20 bg-[#f7fbff]">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Section Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Our Services
-          </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
+      <section id="services" className="pt-10 pb-20 bg-[#f7fbff]">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* Section Header */}
+    <div className="text-center mb-14">
+      <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
+        Our Services
+      </h2>
+      <div className="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
+    </div>
+
+    {/* Services Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((service, index) => (
+        <div
+          key={index}
+          className="bg-white rounded-2xl overflow-hidden border border-gray-100
+                     hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+        >
+          {/* Icon Area (same as reference) */}
+          <div className="bg-blue-200 flex items-center justify-center h-52">
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-200 h-200 object-contain"
+            />
+          </div>
+
+          {/* Content */}
+          <div className="p-6 text-left">
+            <h3 className="text-lg font-semibold text-blue-600 mb-2">
+              {service.title}
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {service.desc}
+            </p>
+          </div>
         </div>
+      ))}
+    </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition"
-              >
-                {/* Icon */}
-                <div className="w-20 h-20 mx-auto mb-6 rounded-xl bg-blue-100 flex items-center justify-center">
-                  <Icon className="w-10 h-10 text-blue-600" />
-                </div>
+  </div>
+</section>
 
-                {/* Title */}
-                <h3 className="text-lg font-semibold text-blue-600 mb-3">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {service.desc}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-
+      {/* ================= WHY CHOOSE US SECTION ================= */}
     <section id="why" className="pt-10 pb-20 bg-white">
   {/* Heading */}
   <div className="text-center mb-12">
