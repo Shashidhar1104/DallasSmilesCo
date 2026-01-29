@@ -10,12 +10,8 @@ import { useState } from "react";
 
 import {
   SparklesIcon,
-  AdjustmentsHorizontalIcon,
   ShieldCheckIcon,
-  MagnifyingGlassIcon,
   HeartIcon,
-  FaceSmileIcon,
-  WrenchScrewdriverIcon,
   BuildingOffice2Icon,
   UserGroupIcon,
   ComputerDesktopIcon,
