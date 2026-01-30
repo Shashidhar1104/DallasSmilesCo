@@ -1,4 +1,4 @@
-import logo from "../assets/logo-final.png";
+import logo from "../assets/dentallogo.png";
 import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
@@ -29,16 +29,16 @@ function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <img
                 src={logo}
-                alt="Vinay's Dental Care"
-                className="h-14 w-auto"
+                alt="Dallas Smiles & Co."
+                className="h-20 w-auto"
               />
               <span className="text-xl font-medium text-gray-800">
-                Dallas Smiles & Co.
+                DALLAS SMILES <br />DENTAL & ORTHODONTICS
               </span>
             </div>
 
             <p className="text-gray-700 leading-relaxed max-w-sm">
-              Dallas Smiles & Co. is dedicated to delivering compassionate,
+              Dallas Smiles Dental & Orthodontics is dedicated to delivering compassionate,
               high-quality dental treatments while building trust and long-term
               patient relationships.
             </p>
@@ -97,18 +97,17 @@ function Footer() {
 
             <div className="space-y-4 text-gray-700">
               <p>
-                C/o Sunil Opticians, #4-7-104<br />
-                Opp. Motimarket, Esamia Bazar<br />
-                Hyderabad, Telangana 500027
+                3234 Forest lane,<br />
+                Dallas, TX, 75234
               </p>
 
               <div>
                 <p className="font-medium text-gray-600">Phone</p>
                 <p className="text-blue-600 font-medium">
-                  +91 9032035039
+                  +1 (972) 484-5400
                 </p>
                 <p className="text-blue-600 font-medium">
-                  +91 7207048801
+                  
                 </p>
               </div>
 
@@ -134,7 +133,7 @@ function Footer() {
       <p className="text-gray-500 text-sm flex items-center gap-2 justify-center lg:justify-start">
         © {new Date().getFullYear()}
         <span className="text-blue-600 font-semibold">
-          Dallas Smiles & Co.
+          Dallas Smiles Dental & Orthodontics
         </span>
         <span className="text-gray-400">|</span>
         <span className="flex items-center gap-1">

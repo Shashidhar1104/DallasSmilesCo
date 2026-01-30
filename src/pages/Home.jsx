@@ -5,7 +5,7 @@ import video2 from "../assets/Hero-section.mp4";
 import video3 from "../assets/Hero-section.mp4";
 import video4 from "../assets/Hero-section.mp4";
 import video5 from "../assets/Hero-section.mp4";
-import aboutImage from "../assets/logo-final.png";
+import aboutImage from "../assets/profilepic.jpeg";
 import { useState } from "react";
 
 import {
@@ -220,14 +220,14 @@ function Home() {
             <img
               src={aboutImage}
               alt="About Dallas Smiles"
-              className="w-72 h-72 rounded-full object-cover shadow-lg"
+              className="w-80 h-80 rounded-full object-cover shadow-lg"
             />
           </div>
 
           {/* TEXT RIGHT */}
           <div>
             <h3 className="text-xl font-semibold text-blue-600 mb-3">
-              Pediatric Dentist
+              Pediatric Dentist - Dr. Bariki, DDS
             </h3>
             <p className="text-gray-700 leading-relaxed">
               Dallas Smiles & Co. is dedicated to providing gentle,
@@ -601,12 +601,13 @@ function Home() {
       {/* MAP */}
       <div className="w-full h-[520px] rounded-3xl overflow-hidden shadow">
         <iframe
-          title="Dallas Smiles & Co Location"
-          src="https://www.google.com/maps?q=Dallas%20Smiles%20%26%20Co&output=embed"
-          className="w-full h-full border-0"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+  title="Dallas Smiles & Co Location"
+  src="https://www.google.com/maps?q=3234%20Forest%20Lane,%20Dallas,%20TX%2075234&output=embed"
+  className="w-full h-full border-0"
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
+
       </div>
 
       {/* FORM */}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "../assets/logo-final.png";
+import logo from "../assets/dentallogo.png";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -42,19 +42,19 @@ function Navbar() {
           {/* LOGO */}
           <button
             onClick={() => scrollToSection("home")}
-            className="flex items-center gap-2 flex-shrink-0"
+            className="flex items-center gap-0 flex-shrink-0"
           >
-            <img src={logo} alt="Dallas Smiles & Co" className="h-16 w-auto" />
+            <img src={logo} alt="Dallas Smiles & Co" className="h-20 w-auto" />
             <span
-              className="text-2xl font-normal tracking-wide"
+              className="text-xl font-normal tracking-wide"
               style={{ color: "#3f4245", letterSpacing: "0.02em" }}
             >
-              Dallas Smiles & Co.
+              DALLAS SMILES <br />DENTAL & ORTHODONTICS
             </span>
           </button>
 
           {/* DESKTOP MENU */}
-          <nav className="hidden md:flex items-center gap-10 ml-auto">
+          <nav className="hidden md:flex items-center gap-9 ml-auto">
             {menuItems.map((item) => (
               <button
                 key={item.label}
@@ -65,13 +65,13 @@ function Navbar() {
               </button>
             ))}
 
-            {/* CTA */}
+           {/* CTA */}   
             <button
               onClick={() => scrollToSection("appointment")}
-              className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-7 py-3 rounded-full font-semibold transition"
+              className="ml-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-semibold transition"
             >
               Book Appointment
-            </button>
+            </button>    
           </nav>
 
           {/* MOBILE MENU BUTTON */}
