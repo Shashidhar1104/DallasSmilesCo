@@ -10,8 +10,7 @@ import download1 from "../assets/download1.jpeg";
 import download2 from "../assets/download2.jpeg";
 import download3 from "../assets/download3.jpeg";
 import { CheckCircleIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
-import doc1 from "../assets/doc1.jpeg";
-import doc2 from "../assets/doc2.jpeg";
+
 import happy_family from "../assets/happy_family_final.png";
 
 const services = [
@@ -346,27 +345,7 @@ function Home() {
               className="relative z-10 rounded-3xl shadow-xl w-full object-cover"
             />
 
-            {/* Meet our team floating card */}
-            <div className="absolute bottom-4 right-4 bg-white shadow-lg rounded-xl px-4 py-3 flex items-center gap-3 z-20">
-              <div className="flex -space-x-2">
-                <img
-                  src={doc1}
-                  className="w-8 h-8 rounded-full border-2 border-white"
-                  alt=""
-                />
-                <img
-                  src={doc2}
-                  className="w-8 h-8 rounded-full border-2 border-white"
-                  alt=""
-                />
-              </div>
-              <span className="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
-                +5
-              </span>
-              <p className="text-sm font-semibold text-gray-800">
-                Meet Our Team
-              </p>
-            </div>
+            
           </div>
 
           {/* RIGHT CONTENT */}
