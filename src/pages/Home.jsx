@@ -1,11 +1,4 @@
 import herobg from "../assets/dentist_image.jpg";
-import phoneImg from "../assets/mobile_app.png";
-import video1 from "../assets/Hero-section.mp4";
-import video2 from "../assets/Hero-section.mp4";
-import video3 from "../assets/Hero-section.mp4";
-import video4 from "../assets/Hero-section.mp4";
-import video5 from "../assets/Hero-section.mp4";
-import aboutImage from "../assets/profilepic.jpeg";
 import { useState } from "react";
 
 import {
@@ -18,14 +11,15 @@ import {
   ClipboardDocumentCheckIcon,
   ClockIcon,
 } from "@heroicons/react/24/outline";
-import smile from "../assets/services1.png";
-import braces from "../assets/services2.png";
-import gum from "../assets/services3.png";
-import implants from "../assets/services4.png";
-import wisdom from "../assets/services5.png";
-import kids from "../assets/services6.png";
-import root from "../assets/services7.png";
-import crowns from "../assets/services8.png";
+import smile from "../assets/Clean tooth.gif";
+import braces from "../assets/Cartoon Tooth Character Looking In Mirror.gif";
+import gum from "../assets/Cleaning Teeth.gif";
+import implants from "../assets/Crown1.gif";
+import wisdom from "../assets/Dallas Smiles Dental.gif";
+import kids from "../assets/Dental floss.gif";
+import download1 from "../assets/dentist_image.jpg";
+import download2 from "../assets/dentist_image.jpg";
+import download3 from "../assets/dentist_image.jpg";
 
 const services = [
   {
@@ -58,17 +52,9 @@ const services = [
     desc: "Gentle dental care designed for children.",
     image: kids,
   },
-  {
-    title: "Root Canal",
-    desc: "Relieve pain and save your natural teeth.",
-    image: root,
-  },
-  {
-    title: "Crowns & Dentures",
-    desc: "Restore function and aesthetics of teeth.",
-    image: crowns,
-  },
 ];
+
+
 
 const features = [
   {
@@ -115,278 +101,283 @@ const features = [
 
 const testimonials = [
   {
-    name: "Panithapu Divya",
-    reviews: "5 reviews",
-    time: "10 months ago",
+    name: "Jennifer Martinez",
+    role: "Patient for 5 years",
+    initials: "JM",
     text:
-      "Dr. Vinay is a skillful dentist who really cares about his patients. His caring attitude is extraordinary and he always walks the extra mile.",
+      "Dr. Sarah and the entire team are absolutely wonderful! I used to dread going to the dentist, but now I actually look forward to my appointments.",
   },
   {
-    name: "Sampath Chary",
-    reviews: "1 review • 2 photos",
-    time: "3 months ago",
+    name: "Michael Thompson",
+    role: "Invisalign Patient",
+    initials: "MT",
     text:
-      "So cool. Caring was good in the treatment process. Highly suggested this doctor for all dental problems.",
+      "Got Invisalign here and the results exceeded my expectations. The staff was professional, the office is beautiful, and they made the whole process so easy. Highly recommend!",
   },
   {
-    name: "Sameer Jackson",
-    reviews: "4 reviews",
-    time: "5 days ago",
+    name: "Lisa Anderson",
+    role: "Family of 4",
+    initials: "LA",
     text:
-      "We were very impressed with the care our child received. The service was excellent and the doctor was very patient.",
+      "We bring our whole family here – from our 6-year-old to my husband. They're amazing with the kids and always so patient. Best dental experience we've ever had in Dallas.",
   },
   {
-    name: "Aarav Patel",
-    reviews: "6 reviews",
-    time: "2 months ago",
+    name: "Michael Thompson",
+    role: "Invisalign Patient",
+    initials: "MT",
     text:
-      "Very professional clinic with modern equipment. Highly recommend!",
+      "Got Invisalign here and the results exceeded my expectations. The staff was professional, the office is beautiful, and they made the whole process so easy. Highly recommend!",
   },
   {
-    name: "Neha Sharma",
-    reviews: "3 reviews",
-    time: "1 month ago",
+    name: "Lisa Anderson",
+    role: "Family of 4",
+    initials: "LA",
     text:
-      "Friendly staff and painless treatment. Loved the experience.",
+      "We bring our whole family here – from our 6-year-old to my husband. They're amazing with the kids and always so patient. Best dental experience we've ever had in Dallas.",
   },
+];
+
+const stats = [
+  { value: "10,000+", label: "Happy Patients" },
+  { value: "20+", label: "Years Experience" },
+  { value: "4.9", label: "Average Rating" },
+  { value: "15+", label: "Expert Staff" },
 ];
 
 
 function Home() {
-  const [index, setIndex] = useState(0);
+  
+  const [active, setActive] = useState(0);
+  
+    const visible = testimonials.slice(active, active + 3);
 
-  const visibleCards = 3;
-  const maxIndex = testimonials.length - visibleCards;
+  
   return (
     <>
       {/* ================= HERO SECTION ================= */}
-<section id="home" className="relative w-full overflow-hidden">
-
-  {/* FULL BACKGROUND IMAGE */}
-  <img
-    src={herobg}
-    alt="Dental professional"
-    className="w-full h-[650px] md:h-[750px] object-cover"
+{/* ================= HERO SECTION ================= */}
+<section
+  id="home"
+  className="relative w-full h-[85vh] md:h-[90vh] overflow-hidden"
+>
+  {/* Background Video */}
+  <video
+    className="absolute inset-0 w-full h-full object-cover"
+    src={herobg}   // <-- your uploaded video
+    autoPlay
+    loop
+    muted
+    playsInline
   />
 
-  {/* OVERLAY CONTENT PANEL */}
-  <div
-    className="
-      absolute
-      top-3
-      left-0
-      h-auto
-      w-full
-      md:w-[55%]
-      bg-white/70
-      backdrop-blur-sm
-      px-4
-      md:px-12
-      py-5
-      md:py-10
-    "
-  >
-    <h1 className="text-3xl md:text-4xl font-semibold text-blue-600 leading-tight">
-      The largest network of dental professionals actively seeking
-      permanent and temporary work.
-    </h1>
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-[#0A2540]/90 via-[#1E5EFF]/70 to-[#1E5EFF]/30" />
 
-    <p className="mt-4 text-lg text-gray-700 leading-relaxed max-w-xl">
-      Designed for dental professionals and offices, Cloud Dentistry
-      connects verified professionals with offices looking to hire.
-      Professionals earn more while offices save on recruitment
-      expenses.
-    </p>
+  {/* Content */}
+  <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center px-6">
+    <div className="max-w-2xl text-white">
+
+      <span className="inline-block mb-4 px-4 py-1 rounded-full bg-white/10 text-sm tracking-wide">
+        Family Dental Care
+      </span>
+
+      <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+        Elevating Smiles with <br />
+        <span className="text-sky-300">Expert Care</span> and a Gentle Touch
+      </h1>
+
+      <p className="mt-6 text-lg text-white/90 leading-relaxed">
+        Experience compassionate, state-of-the-art dental care for your entire
+        family — from routine cleanings to advanced treatments.
+      </p>
+
+      {/* Buttons */}
+      <div className="mt-10 flex flex-wrap gap-4">
+        <button
+          onClick={() =>
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="px-8 py-4 rounded-full bg-primary text-white font-semibold
+                     shadow-lg hover:shadow-xl hover:-translate-y-1 transition"
+        >
+          Book Appointment
+        </button>
+
+        <button
+          onClick={() =>
+            document
+              .getElementById("services")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="px-8 py-4 rounded-full border border-white/40 text-white
+                     hover:bg-white hover:text-primary transition"
+        >
+          Explore Our Services
+        </button>
+      </div>
+    </div>
   </div>
-
-  
-
 </section>
+
 
 {/* ================= ABOUT US SECTION ================= */}
-<section id="about" className="pt-10 pb-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <section className="w-full bg-white py-16">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        {/* TITLE */}
-        <h2 className="text-center text-3xl font-bold text-blue-600 mb-16">
-          ABOUT US
-        </h2>
+          {/* LEFT SIDE - IMAGE GRID */}
+          <div className="flex gap-6">
 
-        {/* TOP CONTENT */}
-        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+            {/* LEFT STACK */}
+            <div className="flex flex-col gap-6 w-1/2">
+              <img
+                src={download1}
+                alt="Dental Consultation"
+                className="
+                h-56 w-full object-cover rounded-3xl
+                transition-transform duration-300 hover:scale-105
+              "
+              />
 
-          {/* IMAGE LEFT */}
-          <div className="flex justify-center">
-            <img
-              src={aboutImage}
-              alt="About Dallas Smiles"
-              className="w-80 h-80 rounded-full object-cover shadow-lg"
-            />
+              <img
+                src={download2}
+                alt="Dental Care"
+                className="
+                h-64 w-full object-cover rounded-3xl
+                transition-transform duration-300 hover:scale-105
+              "
+              />
+            </div>
+            {/* RIGHT SINGLE (OFFSET) */}
+            <div className="w-1/2 flex items-center">
+              <img
+                src={download3}
+                alt="Dental Chair"
+                className="
+                h-[360px] w-full object-cover rounded-3xl
+                transition-transform duration-300 hover:scale-105
+                mt-10
+              "
+              />
+            </div>
+
           </div>
 
-          {/* TEXT RIGHT */}
+          {/* RIGHT SIDE - CONTENT */}
           <div>
-            <h3 className="text-xl font-semibold text-blue-600 mb-3">
-              Pediatric Dentist - Dr. Bariki, DDS
-            </h3>
-            <p className="text-gray-700 leading-relaxed">
-              Dallas Smiles & Co. is dedicated to providing gentle,
-              patient-first dental care in a friendly and comfortable
-              environment. We focus on preventive care, advanced
-              treatments, and building confident, healthy smiles for
-              patients of all ages.
+            <p className="text-blue-600 text-2xl font-semibold mb-3">About Us</p>
+
+            <h2 className="text-4xl font-bold text-gray-900 leading-snug mb-6">
+              Professionals and <br />
+              Personalized Dental <br />
+              Excellence
+            </h2>
+
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              We offer high-quality dental care tailored for the whole family.
+              From routine checkups to advanced treatments, our compassionate
+              team ensures your smile stays healthy and confident.
             </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              {[
+                "Personalized Treatment Plans",
+                "State-of-the-Art Technology",
+                "Gentle Care for Kids and Adults",
+                "Flexible Appointment Scheduling",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 hover:text-blue-600 transition-colors"
+                >
+                  <span className="text-blue-600 text-xl">✓</span>
+                  <span className="font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <button
+              className="
+              bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold
+              transition-all duration-300
+              hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5
+            "
+            >
+              Book Appointment
+            </button>
           </div>
         </div>
+      </section >
 
-        {/* ICON STATS */}
-        <div className="grid md:grid-cols-3 gap-14 text-center">
-
-          {/* EXPERIENCE */}
-          <div>
-            <div className="mx-auto w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center mb-4">
-              {/* Graduation Badge */}
-              <svg
-                className="w-10 h-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 22h16" />
-                <path d="M8 14l-2 8" />
-                <path d="M16 14l2 8" />
-              </svg>
-            </div>
-            <h4 className="text-3xl font-bold text-blue-600">15+ Years</h4>
-            <p className="text-gray-700 uppercase text-sm tracking-wide">
-              Of Experience
-            </p>
-          </div>
-
-          {/* HAPPY PATIENTS */}
-          <div>
-            <div className="mx-auto w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center mb-4">
-              {/* Tooth */}
-              <svg
-                className="w-10 h-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2c-3 0-6 2-6 6 0 6 2 14 6 14s6-8 6-14c0-4-3-6-6-6z" />
-              </svg>
-            </div>
-            <h4 className="text-3xl font-bold text-blue-600">10K</h4>
-            <p className="text-gray-700 uppercase text-sm tracking-wide">
-              Of Happy Patients
-            </p>
-          </div>
-
-          {/* SERVICES */}
-          <div>
-            <div className="mx-auto w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center mb-4">
-              {/* Dental Chair */}
-              <svg
-                className="w-10 h-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                viewBox="0 0 24 24"
-              >
-                <path d="M4 12h12l4 4" />
-                <path d="M6 12v6" />
-                <path d="M14 12v6" />
-                <path d="M2 18h20" />
-              </svg>
-            </div>
-            <h4 className="text-3xl font-bold text-blue-600">20+</h4>
-            <p className="text-gray-700 uppercase text-sm tracking-wide">
-              Service Offers
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-      {/* ================= FREE ACCOUNT SECTION ================= */}
-      <section className="w-full bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 pt-10 pb-10">
-
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-            Free to sign up and explore for both dental professionals and offices.
-          </h2>
-
-          <p className="mt-4 text-gray-600 text-lg">
-            Find dental professionals when you need them.
-          </p>
-
-          <div className="mt-12 flex gap-6 overflow-x-auto pb-4">
-  {[video1, video2, video3, video4, video5].map((video, index) => (
-    <div
-      key={index}
-      className="min-w-[220px] h-[360px] rounded-2xl overflow-hidden relative bg-black"
-    >
-      <video
-        src={video}
-        className="w-full h-full object-cover"
-        controls
-        preload="metadata"
-      />
-    </div>
-  ))}
-</div>
-
-
-        </div>
-      </section>
-
-      <section id="services" className="pt-10 pb-20 bg-[#f7fbff]">
+      <section id="services" className="pt-10 pb-20 bg-[#f1f6fd]">
   <div className="max-w-7xl mx-auto px-6">
 
-    {/* Section Header */}
-    <div className="text-center mb-14">
+    {/* Header */}
+    <div className="text-center mb-16">
+      <p className="text-blue-600 font-medium mb-2">Our Services</p>
       <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-        Our Services
+        Complete Care for Every Smile
       </h2>
-      <div className="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
+      <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
+        From routine cleanings to advanced procedures, we provide
+        personalized dental care for all ages.
+      </p>
     </div>
 
-    {/* Services Grid */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {services.map((service, index) => (
-        <div
-          key={index}
-          className="bg-white rounded-2xl overflow-hidden border border-gray-100
-                     hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-        >
-          {/* Icon Area (same as reference) */}
-          <div className="bg-blue-200 flex items-center justify-center h-52">
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-200 h-200 object-contain"
-            />
-          </div>
+    {/* Horizontal Scroll */}
+    <div className="relative">
+      <div className="flex gap-8 overflow-x-auto scrollbar-hide pb-6">
 
-          {/* Content */}
-          <div className="p-6 text-left">
-            <h3 className="text-lg font-semibold text-blue-600 mb-2">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="min-w-[280px] max-w-[280px] bg-white rounded-2xl p-8
+                       shadow-sm hover:shadow-xl hover:-translate-y-2
+                       transition-all duration-300"
+          >
+            {/* GIF (NO BACKGROUND) */}
+            <div className="mb-6">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-20 h-20 object-contain"
+              />
+            </div>
+
+            {/* Text */}
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">
               {service.title}
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+
+            <p className="text-gray-500 text-sm leading-relaxed">
               {service.desc}
             </p>
+
+            {/* Plus Button (Dentia style) */}
+            <button
+              className="mt-6 w-9 h-9 flex items-center justify-center
+                         rounded-full border border-blue-500 text-blue-600
+                         hover:bg-blue-600 hover:text-white transition"
+              aria-label="Read more"
+            >
+              +
+            </button>
           </div>
-        </div>
-      ))}
+        ))}
+
+      </div>
+
+      {/* Scroll hint */}
+      <p className="text-center text-sm text-gray-400 mt-6">
+        ← Scroll to explore more services →
+      </p>
     </div>
 
   </div>
 </section>
+
+
 
       {/* ================= WHY CHOOSE US SECTION ================= */}
     <section id="why" className="pt-10 pb-20 bg-white">
@@ -430,168 +421,101 @@ function Home() {
 </section>
 
 
-       {/* ================= TRANSPARENCY + STATS SECTION ================= */}
-<section className="w-full">
-
-  {/* ===== TOP BLUE RECTANGLE (NO WAVE) ===== */}
-  <div className="w-full bg-blue-900 text-white">
-    <div className="max-w-7xl mx-auto px-6 pt-10 pb-10">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-
-        <p className="text-2xl md:text-3xl leading-relaxed max-w-3xl">
-          <span className="font-semibold">100% transparency for all.</span>{" "}
-          Browse peer-reviews of verified dental professionals and office
-          ratings. Unlimited hiring and bookings anytime, anywhere, and on any
-          device.
-        </p>
-
-        <div className="flex gap-4">
-          <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-medium transition">
-            LOOKING FOR WORK?
-          </button>
-          <button className="bg-sky-400 hover:bg-sky-500 px-6 py-3 rounded-full font-medium transition">
-            LOOKING TO HIRE?
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  {/* ===== WHITE STATS + IMAGE + WAVE ===== */}
-  <div className="relative bg-white overflow-hidden">
-
-    <div className="max-w-7xl mx-auto px-6 pt-5 pb-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-
-        {/* LEFT: STATS (CENTERED BLOCK) */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-3 gap-12 text-center">
-
-            <div>
-              <div className="text-blue-600 text-4xl mb-4">📅</div>
-              <p className="text-3xl font-semibold text-blue-600">674,708</p>
-              <p className="text-gray-700 mt-2">
-                Dental positions<br />filled
-              </p>
-            </div>
-
-            <div>
-              <div className="text-blue-600 text-4xl mb-4">🏢</div>
-              <p className="text-3xl font-semibold text-blue-600">39,550</p>
-              <p className="text-gray-700 mt-2">
-                Dental offices in<br />network
-              </p>
-            </div>
-
-            <div>
-              <div className="text-blue-600 text-4xl mb-4">👤</div>
-              <p className="text-3xl font-semibold text-blue-600">35,722</p>
-              <p className="text-gray-700 mt-2">
-                Approved and verified<br />dental professionals
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-        {/* RIGHT: PHONE IMAGE */}
-        <div className="flex justify-center relative z-10">
-          <img
-            src={phoneImg}
-            alt="Cloud Dentistry App"
-            className="max-w-sm w-full"
-          />
-        </div>
-
-      </div>
-    </div>
-
-    {/* ===== WAVE (VISIBLE & UNDER IMAGE) ===== */}
-    <div className="absolute bottom-0 left-0 w-full">
-      <svg
-        viewBox="0 0 1440 120"
-        className="w-full h-[160px]"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0,40 C240,120 480,120 720,100 960,80 1200,40 1440,60 L1440,120 L0,120 Z"
-          fill="#f9fafb"
-        />
-      </svg>
-    </div>
-
-  </div>
-</section>
-
 {/* ================= TESTIMONIAL ================= */}
-<section id="testimonial" className="pt-10 pb-20 bg-blue-100">
-  <h2 className="text-center text-3xl md:text-4xl font-bold text-blue-600 mb-6">
-    TESTIMONIAL
-  </h2>
+      <section className="bg-[#f3f7fb] py-20">
+        <div className="max-w-7xl mx-auto px-6 text-center">
 
-  <p className="text-center max-w-4xl mx-auto text-gray-600 mb-10 px-4">
-    From smile makeovers to routine care, we offer modern, gentle dental
-    services designed to keep you confident, comfortable and glowing with health.
-  </p>
+          {/* SMALL TITLE */}
+          <p className="text-2xl tracking-widest font-semibold text-blue-700 mb-4">
+            TESTIMONIALS
+          </p>
 
-  {/* Google Review Bar */}
-  <div className="max-w-6xl mx-auto bg-white rounded-xl flex items-center justify-between px-6 py-4 mb-12 shadow-sm">
-    <div className="flex items-center gap-3">
-      <span className="font-semibold">Google Reviews</span>
-      <span className="text-yellow-400">★★★★★</span>
-      <span className="text-gray-500">(120+ reviews)</span>
-    </div>
+          {/* MAIN HEADING */}
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+            What Our Patients{" "}
+            <span className="text-blue-600">Say</span>
+          </h2>
 
-    <a
-      href="https://maps.google.com/?cid=XXXXXXXXXXXX"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
-    >
-      Review us on Google
-    </a>
-  </div>
+          {/* SUB TEXT */}
+          <p className="text-lg text-gray-600 leading-relaxed pb-16">
+            Don&apos;t just take our word for it – hear from the families who trust
+            us with their smiles.
+          </p>
 
-  {/* Slider */}
-  <div className="overflow-hidden max-w-6xl mx-auto px-4">
-    <div
-      className="flex gap-6 transition-transform duration-500"
-      style={{ transform: `translateX(-${index * 33.333}%)` }}
-    >
-      {testimonials.map((item, i) => (
-        <div
-          key={i}
-          className="min-w-[300px] md:min-w-[32%] bg-white rounded-2xl p-6 shadow"
-        >
-          <div className="font-semibold">{item.name}</div>
-          <div className="text-sm text-gray-500">
-            {item.reviews} • {item.time}
+          {/* CARDS */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            {visible.map((item, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition"
+              >
+                {/* QUOTE */}
+              {/* <div className="text-blue-300 text-5xl font-bold mb-4">‟</div> */}
+                {/* STARS */}
+                <div className="flex gap-1 text-blue-400 text-xl mb-4">
+                  {Array(5)
+                    .fill(0)
+                    .map((_, idx) => (
+                      <span key={idx}>★</span>
+                    ))}
+                </div>
+
+                {/* TEXT */}
+                <p className="text-gray-700 leading-relaxed mb-8">
+                  "{item.text}"
+                </p>
+
+                {/* USER */}
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-blue-900 text-white flex items-center justify-center font-semibold">
+                    {item.initials}
+                  </div>
+
+                  <div>
+                    <p className="font-semibold text-gray-900">
+                      {item.name}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      {item.role}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="text-yellow-400 mt-2">★★★★★</div>
+          {/* DOTS */}
+          <div className="flex justify-center gap-3">
+            {Array.from({ length: testimonials.length - 2 }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className={`
+                w-3 h-3 rounded-full transition-all duration-300
+                ${active === i
+                    ? "bg-blue-600 scale-125"
+                    : "bg-gray-300 hover:bg-blue-400"}
+              `}
+              />
+            ))}
+          </div>
 
-          <p className="text-gray-600 mt-3 leading-relaxed">
-            {item.text}
-          </p>
+          {/* STATS */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            {stats.map((stat, i) => (
+              <div key={i}>
+                <p className="text-4xl font-bold text-blue-900 mb-2">
+                  {stat.value}
+                </p>
+                <p className="text-gray-600">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
         </div>
-      ))}
-    </div>
-  </div>
-
-  {/* Dots */}
-  <div className="flex justify-center gap-2 mt-8">
-    {[...Array(maxIndex + 1)].map((_, i) => (
-      <button
-        key={i}
-        onClick={() => setIndex(i)}
-        className={`w-3 h-3 rounded-full ${
-          index === i ? "bg-blue-600" : "bg-gray-300"
-        }`}
-      />
-    ))}
-  </div>
-</section>
+      </section>
 
 {/* ================= CONTACT / BOOK APPOINTMENT ================= */}
 <section id="contact" className="pt-10 pb-20 bg-white">
