@@ -1,25 +1,18 @@
 import herobg from "../assets/dentist_image.jpg";
 import { useState } from "react";
-
-import {
-  SparklesIcon,
-  ShieldCheckIcon,
-  HeartIcon,
-  BuildingOffice2Icon,
-  UserGroupIcon,
-  ComputerDesktopIcon,
-  ClipboardDocumentCheckIcon,
-  ClockIcon,
-} from "@heroicons/react/24/outline";
 import smile from "../assets/Clean tooth.gif";
 import braces from "../assets/Cartoon Tooth Character Looking In Mirror.gif";
 import gum from "../assets/Cleaning Teeth.gif";
 import implants from "../assets/Crown1.gif";
 import wisdom from "../assets/Dallas Smiles Dental.gif";
 import kids from "../assets/Dental floss.gif";
-import download1 from "../assets/dentist_image.jpg";
-import download2 from "../assets/dentist_image.jpg";
-import download3 from "../assets/dentist_image.jpg";
+import download1 from "../assets/download1.jpeg";
+import download2 from "../assets/download2.jpeg";
+import download3 from "../assets/download3.jpeg";
+import { CheckCircleIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
+import doc1 from "../assets/doc1.jpeg";
+import doc2 from "../assets/doc2.jpeg";
+import happy_family from "../assets/happy_family_final.png";
 
 const services = [
   {
@@ -56,48 +49,8 @@ const services = [
 
 
 
-const features = [
-  {
-    icon: ShieldCheckIcon,
-    title: "Gentle & Patient-Centered Care",
-    desc: "We treat every patient with compassion, patience, and a personal touch—especially children and anxious individuals.",
-  },
-  {
-    icon: UserGroupIcon,
-    title: "Specialized in Child-Friendly Dentistry",
-    desc: "We make dental visits stress-free and fun for kids, helping build healthy habits for life.",
-  },
-  {
-    icon: SparklesIcon,
-    title: "Experienced & Trusted Professionals",
-    desc: "Our skilled team brings years of clinical expertise with a calm, reassuring approach.",
-  },
-  {
-    icon: ComputerDesktopIcon,
-    title: "Digital Dentistry",
-    desc: "With 3D scanners, digital X-rays, and guided treatment, we ensure faster and more accurate care.",
-  },
-  {
-    icon: HeartIcon,
-    title: "Complete Dental Solutions",
-    desc: "From preventive care to orthodontics and restorations—we’re your one-stop dental destination.",
-  },
-  {
-    icon: ClipboardDocumentCheckIcon,
-    title: "Transparent & Ethical Treatment Plans",
-    desc: "We explain every step clearly, offer honest guidance, and respect your time and trust.",
-  },
-  {
-    icon: BuildingOffice2Icon,
-    title: "Modern, Hygienic & Comfortable Clinic",
-    desc: "Equipped with advanced technology and a warm environment to ensure safety and comfort.",
-  },
-  {
-    icon: ClockIcon,
-    title: "Convenient Appointments & Timely Follow-Ups",
-    desc: "Flexible scheduling and prompt communication to fit your busy lifestyle.",
-  },
-];
+
+
 
 const testimonials = [
   {
@@ -379,46 +332,87 @@ function Home() {
 
 
 
-      {/* ================= WHY CHOOSE US SECTION ================= */}
-    <section id="why" className="pt-10 pb-20 bg-white">
-  {/* Heading */}
-  <div className="text-center mb-12">
-    <h2 className="text-3xl md:text-4xl font-bold text-blue-600">
-      WHY CHOOSE US?
-    </h2>
-  </div>
+       <section className="bg-white py-16">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* LEFT IMAGE */}
+          <div className="relative">
+            <div className="absolute -top-6 -left-6 w-full h-full bg-blue-100 rounded-3xl"></div>
 
-  {/* Container */}
-  <div className="max-w-6xl mx-auto px-6">
-    <div className="bg-blue-50 rounded-3xl p-10 md:p-14">
-      
-      {/* 🔥 GRID FIX */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-14">
-        {features.map((item, index) => (
-          <div key={index} className="flex gap-6">
-            
-            {/* Icon */}
-            <div className="bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">
-              <item.icon className="w-7 h-7 text-blue-600" />
-            </div>
+            <img
+              src={happy_family}
+              alt="Happy family"
+              className="relative z-10 rounded-3xl shadow-xl w-full object-cover"
+            />
 
-            {/* Content */}
-            <div>
-              <h4 className="font-semibold text-lg text-gray-900">
-                {item.title}
-              </h4>
-              <p className="text-gray-600 mt-2 leading-relaxed">
-                {item.desc}
+            {/* Meet our team floating card */}
+            <div className="absolute bottom-4 right-4 bg-white shadow-lg rounded-xl px-4 py-3 flex items-center gap-3 z-20">
+              <div className="flex -space-x-2">
+                <img
+                  src={doc1}
+                  className="w-8 h-8 rounded-full border-2 border-white"
+                  alt=""
+                />
+                <img
+                  src={doc2}
+                  className="w-8 h-8 rounded-full border-2 border-white"
+                  alt=""
+                />
+              </div>
+              <span className="bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                +5
+              </span>
+              <p className="text-sm font-semibold text-gray-800">
+                Meet Our Team
               </p>
             </div>
-
           </div>
-        ))}
-      </div>
 
-    </div>
-  </div>
-</section>
+          {/* RIGHT CONTENT */}
+          <div>
+            <p className="text-sm font-semibold text-blue-600 uppercase mb-2">
+              Why Choose Us
+            </p>
+
+            <h2 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+              Your Trusted Partner for{" "}
+              <span className="text-blue-600">Lifelong Dental Health</span>
+            </h2>
+
+            <p className="text-gray-600 mb-8">
+              At Dallas Smiles Dental & Orthodontics, we believe everyone deserves
+              a beautiful, healthy smile. Our dedicated team combines advanced
+              technology with compassionate care to deliver exceptional results
+              in a comfortable, welcoming environment.
+            </p>
+
+            {/* FEATURES */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              {[
+                "State-of-the-art technology & equipment",
+                "Flexible payment & financing options",
+                "Experienced, board-certified dentists",
+                "Comfortable, spa-like environment",
+                "Emergency same-day appointments",
+                "Warm, caring team focused on you",
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <CheckCircleIcon className="w-6 h-6 text-blue-500 flex-shrink-0" />
+                  <p className="text-gray-700 text-sm">{item}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <button className="inline-flex items-center gap-2 bg-blue-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-900 transition">
+              Meet Our Team
+              <ArrowRightIcon className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 {/* ================= TESTIMONIAL ================= */}
