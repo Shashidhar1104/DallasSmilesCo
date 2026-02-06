@@ -29,7 +29,7 @@ function FloatingButtons() {
       {showTop && (
         <button
           onClick={scrollToTop}
-          className="w-12 h-12 rounded-full bg-blue-600 text-white 
+          className="w-12 h-12 rounded-full bg-[#0A2540] text-white 
                      flex items-center justify-center shadow-lg 
                      hover:scale-105 transition"
           aria-label="Scroll to top"
@@ -55,7 +55,7 @@ function FloatingButtons() {
       <button
         onClick={scrollToContact}
         className="flex items-center gap-2 px-5 py-3 
-                   rounded-full bg-blue-600 text-white 
+                   rounded-full bg-[#0A2540] text-white 
                    font-semibold shadow-lg 
                    hover:scale-105 transition"
       >

@@ -32,7 +32,7 @@ function Navbar() {
     { label: "About Us", id: "about" },
     { label: "Services", id: "services" },
     { label: "Why Choose Us", id: "why" },
-    { label: "Testimonial", id: "testimonial" },
+    { label: "Testimonial", id: "testimonials" },
     { label: "Contact Us", id: "contact" },
   ];
 
@@ -151,8 +151,8 @@ function Navbar() {
 
     {/* BOOK APPOINTMENT */}
     <button
-      onClick={() => scrollToSection("appointment")}
-      className="bg-blue-600 hover:bg-blue-700
+      onClick={() => scrollToSection("contact")}
+      className="bg-[#0A2540] hover:bg-[#163a63]
                  text-white px-5 py-2 rounded-full
                  font-semibold transition"
     >

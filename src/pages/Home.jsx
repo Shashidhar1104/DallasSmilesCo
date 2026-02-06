@@ -102,7 +102,7 @@ function Home() {
 <section
   id="home"
   className="relative w-full
-             min-h-[100svh]
+             min-h-[90svh]
              md:h-[90vh]
              overflow-hidden"
 >
@@ -115,7 +115,7 @@ function Home() {
                bg-gradient-to-r
                from-[#0A2540]/90
                via-[#1E5EFF]/50
-               to-[#1E5EFF]/10"
+               to-[#1E5EFF]/20"
   />
 
   {/* Mobile fallback blur (only if image ends early) */}
@@ -170,7 +170,7 @@ function Home() {
       From routine cleanings to advanced orthodontics, we're here to give you the
         confident smile you deserve.
         </p>
-
+  
       {/* Buttons */}
       <div className="mt-6 flex flex-col sm:flex-row gap-3">
         <button
@@ -179,8 +179,8 @@ function Home() {
           }
           className="group flex items-center justify-center gap-2
                      px-6 py-3 rounded-full
-                     bg-sky-300 text-[#0A2540] text-sm font-semibold
-                     hover:bg-white hover:-translate-y-0.5
+                     bg-[#0A2540] text-white text-sm font-semibold
+                     hover:bg-[#163a63] hover:-translate-y-0.5
                      transition-all duration-300 shadow-md"
         >
           <FaCalendarCheck className="text-sm" />
@@ -262,7 +262,7 @@ function Home() {
 </section>
 
 {/* ================= ABOUT US SECTION ================= */}
-      <section className="w-full bg-white py-16">
+      <section id="about" className="w-full bg-white py-16">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* LEFT SIDE - IMAGE GRID */}
@@ -338,9 +338,9 @@ function Home() {
 
             <button
               className="
-              bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold
+              bg-[#0A2540] text-white px-6 py-3 rounded-lg font-semibold
               transition-all duration-300
-              hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5
+              hover:bg-[#163a63] hover:shadow-lg hover:-translate-y-0.5
             "
             >
               Book Appointment
@@ -399,11 +399,11 @@ function Home() {
              flex items-center
              h-9 w-9
              rounded-full
-             border border-blue-500
-             text-blue-600
+             border border-[#0A2540]
+             text-[#0A2540]
              overflow-hidden
              hover:w-[120px]
-             hover:bg-blue-600 hover:text-white
+             hover:bg-[#0A2540] hover:text-white
              transition-all duration-300 ease-in-out"
   aria-label="Read more"
 >
@@ -448,7 +448,7 @@ function Home() {
 
 
 
-       <section className="bg-white py-16">
+       <section id="why" className="bg-white py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -501,7 +501,7 @@ function Home() {
             </div>
 
             {/* CTA */}
-            <button className="inline-flex items-center gap-2 bg-blue-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-900 transition">
+            <button className="inline-flex items-center gap-2 bg-[#0A2540] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#163a63] transition">
               Meet Our Team
               <ArrowRightIcon className="w-4 h-4" />
             </button>
@@ -512,7 +512,7 @@ function Home() {
 
 
 {/* ================= TESTIMONIAL ================= */}
-      <section className="bg-[#f3f7fb] py-20">
+      <section id="testimonials" className="bg-[#f3f7fb] py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
 
           {/* SMALL TITLE */}
@@ -557,7 +557,7 @@ function Home() {
 
                 {/* USER */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-900 text-white flex items-center justify-center font-semibold">
+                  <div className="w-12 h-12 rounded-full bg-[#0A2540] text-white flex items-center justify-center font-semibold">
                     {item.initials}
                   </div>
 
@@ -696,7 +696,7 @@ function Home() {
             {/* SUBMIT */}
             <button
               type="submit"
-              className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
+              className="bg-[#0A2540] text-white px-8 py-3 rounded-xl font-semibold hover:bg-[#163a63] transition"
             >
               Submit Enquiry
             </button>
