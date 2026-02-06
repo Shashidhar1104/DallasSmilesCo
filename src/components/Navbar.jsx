@@ -44,27 +44,40 @@ function Navbar() {
     >
 
       {/* ================= TOP INFO BAR ================= */}
-<div className="w-full bg-[#0A2540] text-white text-xs md:text-sm">
+<div className="w-full bg-[#0A2540] text-white">
   <div className="max-w-7xl mx-auto px-4 md:px-6">
-    <div className="flex items-center justify-between h-10">
+    <div className="flex items-center h-10 text-xs md:text-sm">
 
-      {/* LEFT INFO (Hidden on small screens) */}
-      <div className="hidden md:flex items-center gap-6">
-        <div className="flex items-center gap-2">
+      {/* MOBILE: Centered Address + Hours */}
+      <div className="flex md:hidden w-full justify-center items-center gap-4 text-center">
+        <div className="flex items-center gap-1">
           <MapPinIcon className="w-4 h-4 text-sky-300" />
-          <span>3234 Forest lane, Dallas, TX, 75234</span>
+          <span>3234 Forest Lane, Dallas</span>
         </div>
-
-        <div className="flex items-center gap-2">
+        <span className="opacity-50">|</span>
+        <div className="flex items-center gap-1">
           <ClockIcon className="w-4 h-4 text-sky-300" />
           <span>Mon–Fri: 10:30 AM–11:00 PM</span>
         </div>
       </div>
 
-      {/* RIGHT INFO (Always visible) */}
+      {/* DESKTOP: Left Address + Hours */}
+      <div className="hidden md:flex items-center gap-6">
+        <div className="flex items-center gap-2">
+          <MapPinIcon className="w-4 h-4 text-sky-300" />
+          <span>3234 Forest Lane, Dallas, TX 75234</span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <ClockIcon className="w-4 h-4 text-sky-300" />
+          <span>Mon–Fri: 10:30 AM – 11:00 PM</span>
+        </div>
+      </div>
+
+      {/* DESKTOP: Phone on Right */}
       <a
         href="tel:+19724845400"
-        className="flex items-center gap-2 font-semibold
+        className="hidden md:flex items-center gap-2 ml-auto font-semibold
                    hover:text-sky-300 transition"
       >
         <PhoneIcon className="w-4 h-4 text-sky-300" />
@@ -74,6 +87,8 @@ function Navbar() {
     </div>
   </div>
 </div>
+
+
 
 
 

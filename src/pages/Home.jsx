@@ -6,9 +6,9 @@ import gum from "../assets/Cleaning Teeth.gif";
 import implants from "../assets/Crown1.gif";
 import wisdom from "../assets/Dallas Smiles Dental.gif";
 import kids from "../assets/Dental floss.gif";
-import download1 from "../assets/download1.jpeg";
-import download2 from "../assets/download2.jpeg";
-import download3 from "../assets/download3.jpeg";
+import download1 from "../assets/download-2.jpeg";
+import download2 from "../assets/download-3.jpeg";
+import download3 from "../assets/download-1.jpeg";
 import { CheckCircleIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
  import { FaCalendarCheck, FaTooth, FaShieldAlt, FaUserMd, FaSmile } from "react-icons/fa";
 
@@ -85,12 +85,7 @@ const testimonials = [
   },
 ];
 
-const stats = [
-  { value: "10,000+", label: "Happy Patients" },
-  { value: "20+", label: "Years Experience" },
-  { value: "4.9", label: "Average Rating" },
-  { value: "15+", label: "Expert Staff" },
-];
+
 
 
 function Home() {
@@ -106,170 +101,165 @@ function Home() {
 {/* ================= HERO SECTION ================= */}
 <section
   id="home"
-  className="relative w-full h-[85vh] md:h-[90vh] overflow-hidden"
+  className="relative w-full
+             min-h-[100svh]
+             md:h-[90vh]
+             overflow-hidden"
 >
   {/* Image Slider */}
   <HeroSlider />
 
   {/* Gradient Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-r from-[#0A2540]/90 via-[#1E5EFF]/50 to-[#1E5EFF]/10 z-10" />
+  <div
+    className="absolute inset-0 z-10
+               bg-gradient-to-r
+               from-[#0A2540]/90
+               via-[#1E5EFF]/50
+               to-[#1E5EFF]/10"
+  />
+
+  {/* Mobile fallback blur (only if image ends early) */}
+  <div
+    className="absolute bottom-0 left-0 right-0
+               h-[45%]
+               md:hidden
+               bg-gradient-to-t
+               from-[#0A2540]/95
+               via-[#1E5EFF]/70
+               to-transparent
+               backdrop-blur-md
+               z-10"
+  />
 
   {/* Content */}
-  <div className="relative z-20 max-w-7xl mx-auto h-full flex items-start pt-2 px-5">
-    <div className="max-w-2xl text-white">
+  <div
+    className="relative z-20 max-w-7xl mx-auto
+               min-h-full
+               flex items-start md:items-center
+               px-4 sm:px-6
+               pt-14 sm:pt-20 md:pt-0
+               pb-12"
+  >
+    <div className="max-w-2xl text-white w-full">
 
       {/* Category Tag */}
 <span
   className="inline-flex items-center gap-2
-             mt-6 md:mt-10
+             mt-0 md:mt-10
              mb-4 px-4 py-1.5
              rounded-full
              bg-white/15 backdrop-blur-md
-             text-sm font-medium tracking-wide
-             text-white
-             shadow-sm"
+             text-xs sm:text-sm font-medium tracking-wide
+             text-white shadow-sm"
 >
   Family Dental Care
 </span>
 
 
-
-
       {/* Heading */}
-      <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
         Your Smile Deserves <br />
         <span className="text-sky-300">the Best Care</span> in Dallas
       </h1>
 
-      {/* Description */}
-      <p className="mt-6 text-lg text-white/90 leading-relaxed">
+      {/* Description (smaller on mobile) */}
+      <p className="mt-3 text-sm sm:text-base md:text-lg text-white/90 leading-relaxed">
         Experience compassionate, state-of-the-art dental care for your entire family.
       </p>
-      <p className="mt-0 text-lg text-white/90 leading-relaxed">
+      <p className="mt-0 text-sm sm:text-base md:text-lg text-white/90 leading-relaxed">
       From routine cleanings to advanced orthodontics, we're here to give you the
         confident smile you deserve.
         </p>
 
       {/* Buttons */}
-<div className="mt-8 flex flex-wrap gap-3">
-  {/* Schedule Visit */}
-  <button
-    onClick={() =>
-      document
-        .getElementById("contact")
-        ?.scrollIntoView({ behavior: "smooth" })
-    }
-    className="group flex items-center gap-2 px-6 py-3 rounded-full
-               bg-sky-300 text-[#0A2540] text-sm font-semibold
-               hover:bg-white hover:-translate-y-0.5
-               transition-all duration-300 shadow-md"
-  >
-    <FaCalendarCheck className="text-sm" />
-    Schedule Your Visit
-  </button>
+      <div className="mt-6 flex flex-col sm:flex-row gap-3">
+        <button
+          onClick={() =>
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="group flex items-center justify-center gap-2
+                     px-6 py-3 rounded-full
+                     bg-sky-300 text-[#0A2540] text-sm font-semibold
+                     hover:bg-white hover:-translate-y-0.5
+                     transition-all duration-300 shadow-md"
+        >
+          <FaCalendarCheck className="text-sm" />
+          Schedule Your Visit
+        </button>
 
-  {/* Explore Services */}
-  <button
-    onClick={() =>
-      document
-        .getElementById("services")
-        ?.scrollIntoView({ behavior: "smooth" })
-    }
-    className="group flex items-center gap-2 px-6 py-3 rounded-full
-               border border-white/50 text-white text-sm font-semibold
-               hover:bg-white hover:text-[#0A2540]
-               hover:-translate-y-0.5 transition-all duration-300"
-  >
-    <FaTooth className="text-sm" />
-    Explore Our Services
-  </button>
-</div>
-
+        <button
+          onClick={() =>
+            document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="group flex items-center justify-center gap-2
+                     px-6 py-3 rounded-full
+                     border border-white/50 text-white text-sm font-semibold
+                     hover:bg-white hover:text-[#0A2540]
+                     hover:-translate-y-0.5 transition-all duration-300"
+        >
+          <FaTooth className="text-sm" />
+          Explore Our Services
+        </button>
+      </div>
 
       {/* Stats */}
-<div className="mt-8 flex flex-wrap gap-5">
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
 
-  {/* Insurance */}
-  <div
-    className="group flex items-center gap-4
-               px-8 py-5 rounded-2xl
-               bg-white/15 backdrop-blur-md
-               text-white text-base font-semibold
-               shadow-md
-               hover:bg-white
-               hover:text-[#0A2540]
-               hover:-translate-y-0.5
-               transition-all duration-300"
-  >
-    <FaShieldAlt
-      className="text-xl group-hover:text-[#0A2540] transition"
-    />
-    <div className="leading-tight">
-      <p>Insurance Accepted</p>
-      <p className="text-sm font-normal text-white/70 group-hover:text-gray-600 transition">
-        Most major plans
-      </p>
-    </div>
-  </div>
+        {/* Insurance */}
+        <div className="group flex items-center gap-4
+                        px-6 py-4 rounded-2xl
+                        bg-white/15 backdrop-blur-md
+                        text-white font-semibold
+                        shadow-md
+                        hover:bg-white hover:text-[#0A2540]
+                        hover:-translate-y-0.5 transition-all duration-300">
+          <FaShieldAlt className="text-xl group-hover:text-[#0A2540]" />
+          <div>
+            <p className="text-sm sm:text-base">Insurance Accepted</p>
+            <p className="text-xs text-white/70 group-hover:text-gray-600">
+              Most major plans
+            </p>
+          </div>
+        </div>
 
-  {/* Experience */}
-  <div
-    className="group flex items-center gap-4
-               px-8 py-5 rounded-2xl
-               bg-white/15 backdrop-blur-md
-               text-white text-base font-semibold
-               shadow-md
-               hover:bg-white
-               hover:text-[#0A2540]
-               hover:-translate-y-0.5
-               transition-all duration-300"
-  >
-    <FaUserMd
-      className="text-xl group-hover:text-[#0A2540] transition"
-    />
-    <div className="leading-tight">
-      <p>10+ Years</p>
-      <p className="text-sm font-normal text-white/70 group-hover:text-gray-600 transition">
-        Experience
-      </p>
-    </div>
-  </div>
+        {/* Experience */}
+        <div className="group flex items-center gap-4
+                        px-6 py-4 rounded-2xl
+                        bg-white/15 backdrop-blur-md
+                        text-white font-semibold
+                        shadow-md
+                        hover:bg-white hover:text-[#0A2540]
+                        hover:-translate-y-0.5 transition-all duration-300">
+          <FaUserMd className="text-xl group-hover:text-[#0A2540]" />
+          <div>
+            <p className="text-sm sm:text-base">10+ Years</p>
+            <p className="text-xs text-white/70 group-hover:text-gray-600">
+              Experience
+            </p>
+          </div>
+        </div>
 
-  {/* Happy Patients */}
-  <div
-    className="group flex items-center gap-4
-               px-8 py-5 rounded-2xl
-               bg-white/15 backdrop-blur-md
-               text-white text-base font-semibold
-               shadow-md
-               hover:bg-white
-               hover:text-[#0A2540]
-               hover:-translate-y-0.5
-               transition-all duration-300"
-  >
-    <FaSmile
-      className="text-xl group-hover:text-[#0A2540] transition"
-    />
-    <div className="leading-tight">
-      <p>5000+</p>
-      <p className="text-sm font-normal text-white/70 group-hover:text-gray-600 transition">
-        Happy Patients
-      </p>
-    </div>
-  </div>
+        {/* Happy Patients */}
+        <div className="group flex items-center gap-4
+                        px-6 py-4 rounded-2xl
+                        bg-white/15 backdrop-blur-md
+                        text-white font-semibold
+                        shadow-md
+                        hover:bg-white hover:text-[#0A2540]
+                        hover:-translate-y-0.5 transition-all duration-300">
+          <FaSmile className="text-xl group-hover:text-[#0A2540]" />
+          <div>
+            <p className="text-sm sm:text-base">5000+</p>
+            <p className="text-xs text-white/70 group-hover:text-gray-600">
+              Happy Patients
+            </p>
+          </div>
+        </div>
 
-</div>
-
-
-
-
-
+      </div>
     </div>
   </div>
 </section>
-
-
-
 
 {/* ================= ABOUT US SECTION ================= */}
       <section className="w-full bg-white py-16">
@@ -403,15 +393,45 @@ function Home() {
               {service.desc}
             </p>
 
-            {/* Plus Button (Dentia style) */}
-            <button
-              className="mt-6 w-9 h-9 flex items-center justify-center
-                         rounded-full border border-blue-500 text-blue-600
-                         hover:bg-blue-600 hover:text-white transition"
-              aria-label="Read more"
-            >
-              +
-            </button>
+            {/* Plus → Read More (Dentia style) */}
+<button
+  className="group mt-6
+             flex items-center
+             h-9 w-9
+             rounded-full
+             border border-blue-500
+             text-blue-600
+             overflow-hidden
+             hover:w-[120px]
+             hover:bg-blue-600 hover:text-white
+             transition-all duration-300 ease-in-out"
+  aria-label="Read more"
+>
+  {/* Plus icon — perfectly centered */}
+<span
+  className="flex-shrink-0
+             w-9 h-9
+             flex items-center justify-center
+             rounded-full
+             text-lg font-medium"
+>
+  +
+</span>
+
+
+  {/* Read more text */}
+  <span
+    className="opacity-0 group-hover:opacity-100
+               whitespace-nowrap
+               text-sm font-medium
+               pr-4
+               transition-opacity duration-200 delay-100"
+  >
+    Read more
+  </span>
+</button>
+
+
           </div>
         ))}
 
@@ -567,20 +587,6 @@ function Home() {
                     : "bg-gray-300 hover:bg-blue-400"}
               `}
               />
-            ))}
-          </div>
-
-          {/* STATS */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            {stats.map((stat, i) => (
-              <div key={i}>
-                <p className="text-4xl font-bold text-blue-900 mb-2">
-                  {stat.value}
-                </p>
-                <p className="text-gray-600">
-                  {stat.label}
-                </p>
-              </div>
             ))}
           </div>
 
