@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/dentallogo.png";
+import {
+  MapPinIcon,
+  ClockIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
+
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -36,43 +42,111 @@ function Navbar() {
         scrolled ? "shadow-sm" : ""
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6">
+
+      {/* ================= TOP INFO BAR ================= */}
+<div className="w-full bg-[#0A2540] text-white text-xs md:text-sm">
+  <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <div className="flex items-center justify-between h-10">
+
+      {/* LEFT INFO (Hidden on small screens) */}
+      <div className="hidden md:flex items-center gap-6">
+        <div className="flex items-center gap-2">
+          <MapPinIcon className="w-4 h-4 text-sky-300" />
+          <span>3234 Forest lane, Dallas, TX, 75234</span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <ClockIcon className="w-4 h-4 text-sky-300" />
+          <span>Mon–Fri: 10:30 AM–11:00 PM</span>
+        </div>
+      </div>
+
+      {/* RIGHT INFO (Always visible) */}
+      <a
+        href="tel:+19724845400"
+        className="flex items-center gap-2 font-semibold
+                   hover:text-sky-300 transition"
+      >
+        <PhoneIcon className="w-4 h-4 text-sky-300" />
+        <span>(972) 484-5400</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+
+
+      <div className="max-w-7xl mx-auto px-3">
         <div className="flex items-center h-24">
 
           {/* LOGO */}
-          <button
-            onClick={() => scrollToSection("home")}
-            className="flex items-center gap-0 flex-shrink-0"
-          >
-            <img src={logo} alt="Dallas Smiles & Co" className="h-20 w-auto" />
-            <span
-              className="text-xl font-normal tracking-wide"
-              style={{ color: "#3f4245", letterSpacing: "0.02em" }}
-            >
-              DALLAS SMILES <br />DENTAL & ORTHODONTICS
-            </span>
-          </button>
+<button
+  onClick={() => scrollToSection("home")}
+  className="flex items-center gap-1 flex-shrink-0 text-left"
+>
+  <img
+    src={logo}
+    alt="Dallas Smiles"
+    className="h-24 w-auto pt-2"
+  />
 
+  <div className="leading-tight">
+    <h1 className="text-xl md:text-3xl font-semibold text-[#0A2540]">
+      Dallas Smiles
+    </h1>
+    <p className="text-[11px] md:text-sm tracking-wide uppercase text-gray-500">
+      Dental & Orthodontics
+    </p>
+  </div>
+</button>
+
+
+         
           {/* DESKTOP MENU */}
-          <nav className="hidden md:flex items-center gap-9 ml-auto">
-            {menuItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.id)}
-                className="text-gray-900 font-medium hover:text-blue-600 transition"
-              >
-                {item.label}
-              </button>
-            ))}
+<nav className="hidden md:flex items-center ml-auto">
 
-           {/* CTA */}   
-            <button
-              onClick={() => scrollToSection("appointment")}
-              className="ml-1 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-semibold transition"
-            >
-              Book Appointment
-            </button>    
-          </nav>
+  {/* MENU LINKS */}
+  <div className="flex items-center gap-6">
+    {menuItems.map((item) => (
+      <button
+        key={item.label}
+        onClick={() => scrollToSection(item.id)}
+        className="text-gray-900 font-medium hover:text-blue-600 transition"
+      >
+        {item.label}
+      </button>
+    ))}
+  </div>
+
+  {/* CTA GROUP */}
+  <div className="flex items-center gap-3 ml-6">
+    
+    {/* CALL NOW */}
+    <a
+      href="tel:+12145551234"
+      className="flex items-center gap-1 px-5 py-2 rounded-full
+                 border border-[#0A2540] text-[#0A2540]
+                 font-semibold hover:bg-[#0A2540] hover:text-white
+                 transition"
+    >
+      <PhoneIcon className="w-4 h-4" />
+      Call Now
+    </a>
+
+    {/* BOOK APPOINTMENT */}
+    <button
+      onClick={() => scrollToSection("appointment")}
+      className="bg-blue-600 hover:bg-blue-700
+                 text-white px-5 py-2 rounded-full
+                 font-semibold transition"
+    >
+      Book Appointment
+    </button>
+
+  </div>
+</nav>
+
 
           {/* MOBILE MENU BUTTON */}
           <button
@@ -97,28 +171,45 @@ function Navbar() {
       </div>
 
       {/* MOBILE MENU */}
-      {open && (
-        <div className="md:hidden bg-white border-t">
-          <div className="px-6 py-6 space-y-5">
-            {menuItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left text-gray-900 font-medium"
-              >
-                {item.label}
-              </button>
-            ))}
+{open && (
+  <div className="md:hidden bg-white border-t">
+    <div className="px-6 py-6 space-y-4">
 
-            <button
-              onClick={() => scrollToSection("appointment")}
-              className="block w-full bg-blue-600 text-white py-3 rounded-full font-semibold"
-            >
-              Book Appointment
-            </button>
-          </div>
-        </div>
-      )}
+      {menuItems.map((item) => (
+        <button
+          key={item.label}
+          onClick={() => scrollToSection(item.id)}
+          className="block w-full text-left text-gray-900 font-medium"
+        >
+          {item.label}
+        </button>
+      ))}
+
+      {/* CALL NOW */}
+      <a
+        href="tel:+12145551234"
+        className="flex items-center justify-center gap-2
+                   w-full border border-blue-600
+                   text-blue-600 py-3 rounded-full
+                   font-semibold"
+      >
+        <PhoneIcon className="w-4 h-4" />
+        Call Now
+      </a>
+
+      {/* BOOK APPOINTMENT */}
+      <button
+        onClick={() => scrollToSection("appointment")}
+        className="block w-full bg-blue-600
+                   text-white py-3 rounded-full
+                   font-semibold"
+      >
+        Book Appointment
+      </button>
+    </div>
+  </div>
+)}
+
     </header>
   );
 }
