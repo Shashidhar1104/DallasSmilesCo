@@ -1,50 +1,106 @@
 import HeroSlider from "../components/HeroSlider";
 import { useState } from "react";
-import smile from "../assets/Clean tooth.gif";
-import braces from "../assets/Cartoon Tooth Character Looking In Mirror.gif";
-import gum from "../assets/Cleaning Teeth.gif";
-import implants from "../assets/Crown1.gif";
-import wisdom from "../assets/Dallas Smiles Dental.gif";
-import kids from "../assets/Dental floss.gif";
+import { useNavigate } from "react-router-dom";
+import smile from "../assets/1.gif";
+import braces from "../assets/2.gif";
+import gum from "../assets/3.gif";
+import implants from "../assets/4.gif";
+import wisdom from "../assets/5.gif";
+import kids from "../assets/6.gif";
 import download1 from "../assets/download-2.jpeg";
 import download2 from "../assets/download-3.jpeg";
 import download3 from "../assets/download-1.jpeg";
 import { CheckCircleIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
- import { FaCalendarCheck, FaTooth, FaShieldAlt, FaUserMd, FaSmile } from "react-icons/fa";
-
+import { FaCalendarCheck, FaTooth, FaShieldAlt, FaUserMd, FaSmile } from "react-icons/fa";
 import happy_family from "../assets/happy_family_final.png";
 
 const services = [
   {
-    title: "Smile Makeover",
-    desc: "Enhance your smile with cosmetic dental solutions.",
-    image: smile,
+    title: "Braces",
+    price: "Starting at $99/mo*",
+    desc: "Improve bite and alignment with low-cost braces designed for every age.",
+    icon: braces,
+    link: "/services/braces",
   },
   {
-    title: "Braces & Aligners",
-    desc: "Straighten teeth with modern orthodontic treatments.",
-    image: braces,
+    title: "Dental Crowns",
+    price: "Starting at $899*",
+    desc: "Protect and strengthen weak teeth with custom-made dental crowns.",
+    icon: smile,
+    link: "/services/crowns",
   },
   {
-    title: "Advanced Gum Treatment",
-    desc: "Comprehensive periodontal care for healthy gums.",
-    image: gum,
+    title: "Tooth Extractions",
+    price: "As low as $199* (per tooth)",
+    desc: "Safe extractions to relieve pain and prevent future dental problems.",
+    icon: braces,
+    link: "/services/extractions",
+  },
+  {
+    title: "Wisdom Teeth",
+    price: "Starting at $300* per tooth",
+    desc: "Safe and stress-free wisdom tooth removal with minimal recovery time.",
+    icon:  wisdom,
+    link: "/services/extractions",
+  },
+  {
+    title: "Root Canal",
+    price: "Starting at $599* (per tooth)",
+    desc: "Painless root canals to treat infection and preserve your natural smile.",
+    icon: gum,
+    link: "/services/extractions",
+  },
+  {
+    title: "Teeth Cleaning",
+    price: "Starting at $200*.",
+    desc: "Remove plaque and stains with a quick and affordable teeth cleaning.",
+    icon:  wisdom,
+    link: "/services/teeth-cleaning",
+  },
+  {
+    title: "Deep Teeth Cleaning",
+    price: "Starting at $500*",
+    desc: "stop gum issues early with thorough and effective deep cleanings.",
+    icon: kids,
+    link: "/services/extractions",
+  },
+  {
+    title: "Simple Filling",
+    price: "Starting at $149*",
+    desc: " restore small tooth damage with quick, painless dental fillings.",
+    icon:  wisdom,
+    link: "/services/wisdom",
   },
   {
     title: "Dental Implants",
-    desc: "Permanent solutions for missing teeth.",
-    image: implants,
+    price: "As low as $199* (per tooth)",
+    desc: "Restore missing teeth with durable solutions that look and feel completely natural.",
+    icon: implants,
+    link: "/services/extractions",
   },
   {
-    title: "Wisdom Tooth Removal",
-    desc: "Safe and painless wisdom tooth extractions.",
-    image: wisdom,
+    title: "Dental Restoration",
+    price: "Starting at $300* per tooth",
+    desc: "Get your confident smile back with durable, natural-looking options for broken or lost teeth.",
+    icon:  wisdom,
+    link: "/services/wisdom",
   },
   {
-    title: "Kids Dentistry",
-    desc: "Gentle dental care designed for children.",
-    image: kids,
+    title: "Gingivectomy",
+    price: "Starting at $599*",
+    desc: "reshape your gum line quickly for a cleaner, more even and healthier-looking smile.",
+    icon: gum,
+    link: "/services/extractions",
   },
+  {
+    title: "Wisdom Teeth",
+    price: "Starting at $300* per tooth",
+    desc: "Safe and stress-free wisdom tooth removal with minimal recovery time.",
+    icon:  wisdom,
+    link: "/services/wisdom",
+  },
+
+
 ];
 
 const testimonials = [
@@ -93,6 +149,9 @@ function Home() {
   const [active, setActive] = useState(0);
   
     const visible = testimonials.slice(active, active + 3);
+
+    const navigate = useNavigate();
+
 
   
   return (
@@ -172,35 +231,52 @@ function Home() {
         </p>
   
       {/* Buttons */}
-      <div className="mt-6 flex flex-col sm:flex-row gap-3">
-        <button
-          onClick={() =>
-            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="group flex items-center justify-center gap-2
-                     px-6 py-3 rounded-full
-                     bg-[#0A2540] text-white text-sm font-semibold
-                     hover:bg-[#163a63] hover:-translate-y-0.5
-                     transition-all duration-300 shadow-md"
-        >
-          <FaCalendarCheck className="text-sm" />
-          Schedule Your Visit
-        </button>
+<div className="mt-6 flex flex-col sm:flex-row gap-3">
+  {/* Schedule Your Visit */}
+  <button
+    onClick={() =>
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+    }
+    className="group flex items-center justify-center gap-2
+               px-6 py-3 rounded-full
+               bg-[#0A2540] text-white text-sm font-semibold
+               hover:bg-[#163a63] hover:-translate-y-0.5
+               transition-all duration-300 shadow-md"
+  >
+    <FaCalendarCheck className="text-sm" />
+    Schedule Your Visit
+  </button>
 
-        <button
-          onClick={() =>
-            document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="group flex items-center justify-center gap-2
-                     px-6 py-3 rounded-full
-                     border border-white/50 text-white text-sm font-semibold
-                     hover:bg-white hover:text-[#0A2540]
-                     hover:-translate-y-0.5 transition-all duration-300"
-        >
-          <FaTooth className="text-sm" />
-          Explore Our Services
-        </button>
-      </div>
+  {/* Explore Our Services */}
+  <button
+    onClick={() =>
+      document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })
+    }
+    className="group flex items-center justify-center gap-2
+               px-6 py-3 rounded-full
+               border border-white/50 text-white text-sm font-semibold
+               hover:bg-white hover:text-[#0A2540]
+               hover:-translate-y-0.5 transition-all duration-300"
+  >
+    <FaTooth className="text-sm" />
+    Explore Our Services
+  </button>
+
+  {/* Financial Partner */}
+  <button
+  onClick={() => navigate("/financing")}
+  className="group flex items-center justify-center gap-2
+             px-6 py-3 rounded-full
+             border border-white/50 text-white text-sm font-semibold
+             hover:bg-white hover:text-[#0A2540]
+             hover:-translate-y-0.5 transition-all duration-300"
+>
+  <span className="text-sm">💳</span>
+  Financial Partner
+</button>
+
+</div>
+
 
       {/* Stats */}
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -318,7 +394,7 @@ function Home() {
               From routine checkups to advanced treatments, our compassionate
               team ensures your smile stays healthy and confident.
             </p>
-
+   
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {[
                 "Personalized Treatment Plans",
@@ -349,105 +425,102 @@ function Home() {
         </div>
       </section >
 
+
+     {/* our services */}
       <section id="services" className="pt-10 pb-20 bg-[#f1f6fd]">
-  <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
 
-    {/* Header */}
-    <div className="text-center mb-16">
-      <p className="text-blue-600 font-medium mb-2">Our Services</p>
-      <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-        Complete Care for Every Smile
-      </h2>
-      <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-        From routine cleanings to advanced procedures, we provide
-        personalized dental care for all ages.
-      </p>
-    </div>
-
-    {/* Horizontal Scroll */}
-    <div className="relative">
-      <div className="flex gap-8 overflow-x-auto scrollbar-hide pb-6">
-
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="min-w-[280px] max-w-[280px] bg-white rounded-2xl p-8
-                       shadow-sm hover:shadow-xl hover:-translate-y-2
-                       transition-all duration-300"
-          >
-            {/* GIF (NO BACKGROUND) */}
-            <div className="mb-6">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-20 h-20 object-contain"
-              />
-            </div>
-
-            {/* Text */}
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">
-              {service.title}
-            </h3>
-
-            <p className="text-gray-500 text-sm leading-relaxed">
-              {service.desc}
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p className="text-blue-600 text-2xl font-medium mb-2">Our Services</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
+              Complete Care for Every Smile
+            </h2>
+            <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
+              From routine cleanings to advanced procedures, we provide
+              personalized dental care for all ages.
             </p>
-
-            {/* Plus → Read More (Dentia style) */}
-<button
-  className="group mt-6
-             flex items-center
-             h-9 w-9
-             rounded-full
-             border border-[#0A2540]
-             text-[#0A2540]
-             overflow-hidden
-             hover:w-[120px]
-             hover:bg-[#0A2540] hover:text-white
-             transition-all duration-300 ease-in-out"
-  aria-label="Read more"
->
-  {/* Plus icon — perfectly centered */}
-<span
-  className="flex-shrink-0
-             w-9 h-9
-             flex items-center justify-center
-             rounded-full
-             text-lg font-medium"
->
-  +
-</span>
-
-
-  {/* Read more text */}
-  <span
-    className="opacity-0 group-hover:opacity-100
-               whitespace-nowrap
-               text-sm font-medium
-               pr-4
-               transition-opacity duration-200 delay-100"
-  >
-    Read more
-  </span>
-</button>
-
-
           </div>
-        ))}
 
-      </div>
+          {/* Horizontal Scroll */}
 
-      {/* Scroll hint */}
-      <p className="text-center text-sm text-gray-400 mt-6">
-        ← Scroll to explore more services →
-      </p>
-    </div>
+          <div className="max-w-7xl mx-auto px-6 py-10 pt-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className="relative bg-white rounded-2xl p-6 shadow-md group hover:shadow-xl transition"
+                >
+                  {/* Icon */}
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    className="w-16 h-16 mb-4"
+                  />
 
-  </div>
-</section>
+                  {/* Heading */}
+                  <h3 className="text-xl font-semibold text-blue-700 mb-2">
+                    {service.title}
+                  </h3>
+
+                  {/* Price */}
+                  <p className="font-bold text-black mb-3">
+                    {service.price}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                    {service.desc}
+                  </p>
+
+                  
+                 {/* + Read More */}
+<div className="mt-4">
+  <button
+    type="button"
+    onClick={() => {
+      navigate(service.link);
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }}
+    className="group inline-flex items-center
+               border border-[#0A2540] rounded-full
+               h-11 w-11 hover:w-36
+               transition-all duration-300 ease-in-out
+               overflow-hidden"
+  >
+    {/* Fixed circle for + */}
+    <span
+      className="flex items-center justify-center
+                 min-w-[44px] h-11
+                 text-[#0A2540] text-xl font-medium"
+    >
+      +
+    </span>
+
+    {/* Read more text */}
+    <span
+      className="pl-2 pr-4 text-[#0A2540] text-sm font-semibold
+                 whitespace-nowrap opacity-0
+                 group-hover:opacity-100
+                 transition-opacity duration-200"
+    >
+      Read more
+    </span>
+  </button>
+</div>
 
 
 
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* why choose us */}
        <section id="why" className="bg-white py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
